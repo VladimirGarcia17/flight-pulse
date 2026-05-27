@@ -11,4 +11,4 @@ SELECT
 FROM base
 GROUP BY callsign, origin_country
 ORDER BY total_flights DESC
-LIMIT 50
+LIMIT 15

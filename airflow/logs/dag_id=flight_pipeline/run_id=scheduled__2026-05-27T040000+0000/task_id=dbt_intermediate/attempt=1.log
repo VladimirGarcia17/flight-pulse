@@ -1,0 +1,35 @@
+[2026-05-27T05:11:06.574+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-27T05:11:06.606+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flight_pipeline.dbt_intermediate scheduled__2026-05-27T04:00:00+00:00 [queued]>
+[2026-05-27T05:11:06.613+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flight_pipeline.dbt_intermediate scheduled__2026-05-27T04:00:00+00:00 [queued]>
+[2026-05-27T05:11:06.613+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2026-05-27T05:11:06.625+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): dbt_intermediate> on 2026-05-27 04:00:00+00:00
+[2026-05-27T05:11:06.634+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'flight_pipeline', 'dbt_intermediate', 'scheduled__2026-05-27T04:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/flight_pipeline.py', '--cfg-path', '/tmp/tmpdbg0f3bv']
+[2026-05-27T05:11:06.637+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask dbt_intermediate
+[2026-05-27T05:11:06.637+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=274) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-05-27T05:11:06.638+0000] {standard_task_runner.py:63} INFO - Started process 275 to run task
+[2026-05-27T05:11:06.693+0000] {task_command.py:426} INFO - Running <TaskInstance: flight_pipeline.dbt_intermediate scheduled__2026-05-27T04:00:00+00:00 [running]> on host 9830577f4a13
+[2026-05-27T05:11:06.771+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='flight-pulse' AIRFLOW_CTX_DAG_ID='flight_pipeline' AIRFLOW_CTX_TASK_ID='dbt_intermediate' AIRFLOW_CTX_EXECUTION_DATE='2026-05-27T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-05-27T04:00:00+00:00'
+[2026-05-27T05:11:06.772+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-27T05:11:06.785+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-27T05:11:06.786+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'docker exec dbt dbt run --select intermediate']
+[2026-05-27T05:11:06.798+0000] {subprocess.py:86} INFO - Output:
+[2026-05-27T05:11:08.501+0000] {subprocess.py:93} INFO - [0m05:11:08  Running with dbt=1.12.0-b1
+[2026-05-27T05:11:08.831+0000] {subprocess.py:93} INFO - [0m05:11:08  Registered adapter: postgres=1.10.0
+[2026-05-27T05:11:09.269+0000] {subprocess.py:93} INFO - [0m05:11:09  Found 6 models, 475 macros
+[2026-05-27T05:11:09.271+0000] {subprocess.py:93} INFO - [0m05:11:09
+[2026-05-27T05:11:09.272+0000] {subprocess.py:93} INFO - [0m05:11:09  Concurrency: 1 threads (target='dev')
+[2026-05-27T05:11:09.273+0000] {subprocess.py:93} INFO - [0m05:11:09
+[2026-05-27T05:11:09.431+0000] {subprocess.py:93} INFO - [0m05:11:09  1 of 1 START sql view model public.int_flights_cleaned ......................... [RUN]
+[2026-05-27T05:11:09.566+0000] {subprocess.py:93} INFO - [0m05:11:09  1 of 1 OK created sql view model public.int_flights_cleaned .................... [[32mCREATE VIEW[0m in 0.13s]
+[2026-05-27T05:11:09.583+0000] {subprocess.py:93} INFO - [0m05:11:09
+[2026-05-27T05:11:09.584+0000] {subprocess.py:93} INFO - [0m05:11:09  Finished running 1 view model in 0 hours 0 minutes and 0.31 seconds (0.31s).
+[2026-05-27T05:11:09.639+0000] {subprocess.py:93} INFO - [0m05:11:09
+[2026-05-27T05:11:09.639+0000] {subprocess.py:93} INFO - [0m05:11:09  [32mCompleted successfully[0m
+[2026-05-27T05:11:09.640+0000] {subprocess.py:93} INFO - [0m05:11:09
+[2026-05-27T05:11:09.641+0000] {subprocess.py:93} INFO - [0m05:11:09  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[2026-05-27T05:11:15.077+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-05-27T05:11:15.078+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-27T05:11:15.107+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=flight_pipeline, task_id=dbt_intermediate, execution_date=20260527T040000, start_date=20260527T051106, end_date=20260527T051115
+[2026-05-27T05:11:15.157+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-05-27T05:11:15.174+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-05-27T05:11:15.176+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -49,6 +49,40 @@ services:
     working_dir: /usr/app/dbt
     entrypoint: ["tail", "-f", "/dev/null"]
 
+  airflow-webserver:
+    image: apache/airflow:2.9.0
+    container_name: airflow-webserver
+    networks:
+      - flight-net
+    depends_on:
+      - postgres
+    env_file:
+      - ./airflow/.env
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "8081:8080"
+    command: webserver
+
+  airflow-scheduler:
+    image: apache/airflow:2.9.0
+    container_name: airflow-scheduler
+    networks:
+      - flight-net
+    depends_on:
+      - postgres
+    env_file:
+      - ./airflow/.env
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: scheduler
+
   kafka:
     image: confluentinc/cp-kafka:7.5.0
     container_name: kafka

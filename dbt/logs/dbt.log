@@ -1,0 +1,29 @@
+[0m21:11:24.148850 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000204E7FC7230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000204E49BAFD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000204E8AC3750>]}
+
+
+============================== 21:11:24.158183 | 97a7ce09-939e-48dd-abf6-c5b67222a1e7 ==============================
+[0m21:11:24.158183 [info ] [MainThread]: Running with dbt=1.11.8
+[0m21:11:24.159196 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\vladi\\.dbt', 'use_colors': 'True', 'invocation_command': 'dbt init flight_pulse', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m21:11:24.204894 [debug] [MainThread]: Starter project path: C:\Users\vladi\AppData\Local\Programs\Python\Python313\Lib\site-packages\dbt\include\starter_project
+[0m21:11:24.225886 [info ] [MainThread]: 
+Your new dbt project "flight_pulse" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m21:11:24.226376 [info ] [MainThread]: Setting up your profile.
+[0m21:11:57.204439 [info ] [MainThread]: Profile flight_pulse written to C:\Users\vladi\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m21:11:57.205814 [debug] [MainThread]: Command `dbt init` succeeded at 21:11:57.205679 after 33.19 seconds
+[0m21:11:57.206238 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000204EA490180>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000204EA470DD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000204E8FFF9B0>]}
+[0m21:11:57.206625 [debug] [MainThread]: Flushing usage events
+[0m21:11:57.686261 [debug] [MainThread]: An error was encountered while trying to flush usage events

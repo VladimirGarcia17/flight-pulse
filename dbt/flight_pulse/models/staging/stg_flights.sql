@@ -19,6 +19,7 @@ renamed AS (
     WHERE callsign IS NOT NULL
       AND longitude IS NOT NULL
       AND latitude IS NOT NULL
+      AND trim(callsign) != ''
 )
 
 SELECT * FROM renamed

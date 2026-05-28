@@ -7,19 +7,7 @@ Apache Airflow.
 
 ## Architecture
 
-OpenSky Network API
-↓
-Python Producer (every 30s)
-↓
-Apache Kafka — topic: flights-raw
-↓
-Python Consumer (batch insert)
-↓
-PostgreSQL — table: flights_raw
-↓
-dbt (staging → intermediate → marts)
-↓
-Apache Airflow (hourly orchestration)
+![Pipeline Architecture](docs/flight_pulse_architecture.png)
 
 ## Tech Stack
 

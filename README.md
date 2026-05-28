@@ -71,6 +71,7 @@ country
 
 ## Project Structure
 
+```
 flight-pulse/
 ├── producer/          # Kafka producer — fetches from OpenSky API
 ├── consumer/          # Kafka consumer — inserts into PostgreSQL
@@ -85,6 +86,7 @@ flight-pulse/
 ├── data/              # Exported CSV marts for Power BI
 ├── docs/              # Dashboard screenshots
 └── docker-compose.yml
+```
 
 ## Setup
 
@@ -96,28 +98,42 @@ flight-pulse/
 ### Installation
 
 1. Clone the repository
-git clone https://github.com/VladimirGarcia17/flight-pulse.git
-cd flight-pulse
+```bash
+    git clone https://github.com/VladimirGarcia17/flight-pulse.git
+    cd flight-pulse
+```
 
 2. Create the environment files
-cp .env.example .env
-Edit .env with your credentials
+```bash
+    cp .env.example .env
+    Edit .env with your credentials
+```
 
 3. Start all services
-docker compose up -d
+```bash
+    docker compose up -d
+```
 
 4. Create the Kafka topic
-docker exec kafka kafka-topics --create --topic flights-raw 
---bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+```bash
+    docker exec kafka kafka-topics --create --topic flights-raw 
+    --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+```
 
 5. Create the flights_raw table in PostgreSQL
-docker exec -it postgres psql -U flightuser -d flightdb
+```bash
+    docker exec -it postgres psql -U flightuser -d flightdb
+```
 
 6. Start the producer
-python producer/producer.py
+```bash
+    python producer/producer.py
+```
 
 7. Run dbt transformations
-docker exec dbt dbt run
+```bash
+    docker exec dbt dbt run
+```
 
 8. Access Airflow UI at `http://localhost:8081` and trigger the
 `flight_pipeline` DAG.

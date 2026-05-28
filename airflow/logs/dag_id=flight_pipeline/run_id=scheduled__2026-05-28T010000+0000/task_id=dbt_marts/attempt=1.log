@@ -1,0 +1,41 @@
+[2026-05-28T02:00:09.926+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-28T02:00:09.958+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flight_pipeline.dbt_marts scheduled__2026-05-28T01:00:00+00:00 [queued]>
+[2026-05-28T02:00:09.966+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flight_pipeline.dbt_marts scheduled__2026-05-28T01:00:00+00:00 [queued]>
+[2026-05-28T02:00:09.967+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2026-05-28T02:00:09.980+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): dbt_marts> on 2026-05-28 01:00:00+00:00
+[2026-05-28T02:00:09.989+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'flight_pipeline', 'dbt_marts', 'scheduled__2026-05-28T01:00:00+00:00', '--job-id', '27', '--raw', '--subdir', 'DAGS_FOLDER/flight_pipeline.py', '--cfg-path', '/tmp/tmpmxi5upz7']
+[2026-05-28T02:00:09.991+0000] {standard_task_runner.py:91} INFO - Job 27: Subtask dbt_marts
+[2026-05-28T02:00:09.992+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2418) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-05-28T02:00:09.993+0000] {standard_task_runner.py:63} INFO - Started process 2419 to run task
+[2026-05-28T02:00:10.110+0000] {task_command.py:426} INFO - Running <TaskInstance: flight_pipeline.dbt_marts scheduled__2026-05-28T01:00:00+00:00 [running]> on host 9830577f4a13
+[2026-05-28T02:00:10.199+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='flight-pulse' AIRFLOW_CTX_DAG_ID='flight_pipeline' AIRFLOW_CTX_TASK_ID='dbt_marts' AIRFLOW_CTX_EXECUTION_DATE='2026-05-28T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-05-28T01:00:00+00:00'
+[2026-05-28T02:00:10.200+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-28T02:00:10.214+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-28T02:00:10.216+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'docker exec dbt dbt run --select marts']
+[2026-05-28T02:00:10.230+0000] {subprocess.py:86} INFO - Output:
+[2026-05-28T02:00:11.706+0000] {subprocess.py:93} INFO - [0m02:00:11  Running with dbt=1.12.0-b1
+[2026-05-28T02:00:11.906+0000] {subprocess.py:93} INFO - [0m02:00:11  Registered adapter: postgres=1.10.0
+[2026-05-28T02:00:12.307+0000] {subprocess.py:93} INFO - [0m02:00:12  Found 6 models, 475 macros
+[2026-05-28T02:00:12.310+0000] {subprocess.py:93} INFO - [0m02:00:12
+[2026-05-28T02:00:12.311+0000] {subprocess.py:93} INFO - [0m02:00:12  Concurrency: 1 threads (target='dev')
+[2026-05-28T02:00:12.312+0000] {subprocess.py:93} INFO - [0m02:00:12
+[2026-05-28T02:00:12.480+0000] {subprocess.py:93} INFO - [0m02:00:12  1 of 4 START sql table model public.mart_altitude_stats ........................ [RUN]
+[2026-05-28T02:00:13.352+0000] {subprocess.py:93} INFO - [0m02:00:13  1 of 4 OK created sql table model public.mart_altitude_stats ................... [[32mSELECT 306[0m in 0.87s]
+[2026-05-28T02:00:13.355+0000] {subprocess.py:93} INFO - [0m02:00:13  2 of 4 START sql table model public.mart_flights_by_country .................... [RUN]
+[2026-05-28T02:00:14.075+0000] {subprocess.py:93} INFO - [0m02:00:14  2 of 4 OK created sql table model public.mart_flights_by_country ............... [[32mSELECT 115[0m in 0.72s]
+[2026-05-28T02:00:14.078+0000] {subprocess.py:93} INFO - [0m02:00:14  3 of 4 START sql table model public.mart_flights_by_hour ....................... [RUN]
+[2026-05-28T02:00:15.031+0000] {subprocess.py:93} INFO - [0m02:00:15  3 of 4 OK created sql table model public.mart_flights_by_hour .................. [[32mSELECT 3[0m in 0.95s]
+[2026-05-28T02:00:15.034+0000] {subprocess.py:93} INFO - [0m02:00:15  4 of 4 START sql table model public.mart_top_airlines .......................... [RUN]
+[2026-05-28T02:00:16.161+0000] {subprocess.py:93} INFO - [0m02:00:16  4 of 4 OK created sql table model public.mart_top_airlines ..................... [[32mSELECT 15[0m in 1.12s]
+[2026-05-28T02:00:16.176+0000] {subprocess.py:93} INFO - [0m02:00:16
+[2026-05-28T02:00:16.177+0000] {subprocess.py:93} INFO - [0m02:00:16  Finished running 4 table models in 0 hours 0 minutes and 3.86 seconds (3.86s).
+[2026-05-28T02:00:16.235+0000] {subprocess.py:93} INFO - [0m02:00:16
+[2026-05-28T02:00:16.236+0000] {subprocess.py:93} INFO - [0m02:00:16  [32mCompleted successfully[0m
+[2026-05-28T02:00:16.237+0000] {subprocess.py:93} INFO - [0m02:00:16
+[2026-05-28T02:00:16.238+0000] {subprocess.py:93} INFO - [0m02:00:16  Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=4
+[2026-05-28T02:00:16.974+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-05-28T02:00:16.975+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-28T02:00:16.998+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=flight_pipeline, task_id=dbt_marts, execution_date=20260528T010000, start_date=20260528T020009, end_date=20260528T020016
+[2026-05-28T02:00:17.036+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-05-28T02:00:17.050+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-05-28T02:00:17.054+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
